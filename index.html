@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="bn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SylhetiLang - Bangla & Sylheti Compiler (CSE-4114)</title>
+    <meta name="description" content="A modular compiler and interactive development environment for Bangla and Sylheti languages." />
+    <script>
+      (function () {
+        try {
+          var _origFetch = typeof window !== 'undefined' && window.fetch ? window.fetch : null;
+          var _activeFetch = _origFetch;
+          function safeFetch() {
+            if (_activeFetch) {
+              return _activeFetch.apply(this, arguments);
+            }
+            if (_origFetch) {
+              return _origFetch.apply(this, arguments);
+            }
+            return Promise.reject(new Error('Fetch unavailable'));
+          }
+
+          try {
+            Object.defineProperty(window, 'fetch', {
+              get: function () {
+                return _activeFetch || safeFetch;
+              },
+              set: function (newFn) {
+                _activeFetch = newFn;
+              },
+              configurable: true,
+              enumerable: true,
+            });
+          } catch (e1) {
+            try {
+              if (window.Window && window.Window.prototype) {
+                Object.defineProperty(window.Window.prototype, 'fetch', {
+                  get: function () {
+                    return _activeFetch || safeFetch;
+                  },
+                  set: function (newFn) {
+                    _activeFetch = newFn;
+                  },
+                  configurable: true,
+                  enumerable: true,
+                });
+              }
+            } catch (e2) {}
+          }
+        } catch (err) {}
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Hind+Siliguri:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-slate-950 font-sans antialiased">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

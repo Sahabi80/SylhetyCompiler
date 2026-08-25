@@ -1,0 +1,6 @@
+{
+  "name": "SylhetiLang - Bangla & Sylheti Compiler (CSE-4114)",
+  "description": "Modular compiler and IDE for Bangla and Sylheti dialects featuring AST generation, symbol tables, LLVM IR, Python/C targets, and optimization passes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
